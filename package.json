@@ -1,6 +1,6 @@
 {
   "name": "tamper-logger",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Tamper-evident, HMAC-chained audit logging (NIS-2 friendly). File/Timescale/syslog/webhook/SMTP/SMS sinks with fail-closed audit categories.",
   "license": "MIT",
   "author": "Ilteris Yucel",

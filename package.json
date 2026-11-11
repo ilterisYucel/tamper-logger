@@ -1,0 +1,59 @@
+{
+  "name": "tamper-logger",
+  "version": "1.0.0",
+  "description": "Tamper-evident, HMAC-chained audit logging (NIS-2 friendly). File/Timescale/syslog/webhook/SMTP/SMS sinks with fail-closed audit categories.",
+  "license": "MIT",
+  "author": "Ilteris Yucel",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ilterisYucel/tamper-logger.git"
+  },
+  "homepage": "https://github.com/ilterisYucel/tamper-logger#readme",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "bin": {
+    "verify-log": "./bin/verify-log.mjs"
+  },
+  "files": [
+    "dist",
+    "bin",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "logging",
+    "audit",
+    "tamper-evident",
+    "hmac",
+    "hash-chain",
+    "nis2",
+    "compliance"
+  ],
+  "engines": {
+    "node": ">=20",
+    "bun": ">=1.4.0"
+  },
+  "scripts": {
+    "build": "rm -rf dist tsconfig.tsbuildinfo && bun build src/index.ts --outdir dist --target node --external nodemailer && tsc -p tsconfig.build.json",
+    "test": "vitest run",
+    "typecheck": "tsc -p tsconfig.typecheck.json --noEmit",
+    "clean": "rm -rf dist tsconfig.tsbuildinfo test-results coverage",
+    "prepublishOnly": "bun run build && bun run test"
+  },
+  "dependencies": {
+    "nodemailer": "^9.0.5"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "@types/nodemailer": "^8.0.1",
+    "typescript": "^5.4.0",
+    "vitest": "^3.0.0"
+  }
+}
